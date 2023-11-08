@@ -690,6 +690,11 @@ export interface ApiAlbumAlbum extends Schema.CollectionType {
   attributes: {
     seq_no: Attribute.BigInteger & Attribute.Required;
     media: Attribute.Media & Attribute.Required;
+    category: Attribute.Relation<
+      'api::album.album',
+      'manyToOne',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -714,12 +719,18 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
+    albums: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::album.album'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
