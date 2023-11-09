@@ -4,7 +4,8 @@
   "info": {
     "singularName": "album",
     "pluralName": "albums",
-    "displayName": "album"
+    "displayName": "album",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,21 +17,25 @@
       "required": true
     },
     "media": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": true
+      ]
     },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "albums"
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }
