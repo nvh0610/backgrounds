@@ -733,6 +733,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToMany',
       'api::album.album'
     >;
+    seq_no: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

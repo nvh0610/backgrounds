@@ -21,6 +21,9 @@
       "relation": "oneToMany",
       "target": "api::album.album",
       "mappedBy": "category"
+    },
+    "seq_no": {
+      "type": "biginteger"
     }
   }
 }
